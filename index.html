@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosso Amor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffd6e8, #ffe9f0);
+      color: #333;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background-color: #ffb6c1;
+      color: white;
+      font-size: 24px;
+    }
+    .contador {
+      font-size: 28px;
+      margin-top: 20px;
+    }
+    .texto-amor {
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      background: #fff0f5;
+      border-radius: 15px;
+      font-style: italic;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px;
+    }
+    .galeria img, .galeria video {
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #ffb6c1;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>Lucas & Maria</header>
+
+  <div class="contador">
+    Estamos juntos há <span id="dias"></span> dias, <span id="horas"></span>h <span id="minutos"></span>min <span id="segundos"></span>s
+  </div>
+
+  <div class="texto-amor">
+    "Desde o momento que te conheci, minha vida mudou para sempre. Te amo mais a cada dia que passa."
+  </div>
+
+  <div class="galeria">
+    <img src="foto1.jpg" alt="Foto 1" />
+    <img src="foto2.jpg" alt="Foto 2" />
+    <video controls>
+      <source src="video1.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+
+  <footer>Te amo para sempre © Lucas & Maria</footer>
+
+  <script>
+    const inicioNamoro = new Date('2023-02-12T00:00:00');
+    function atualizarContador() {
+      const agora = new Date();
+      const diff = agora - inicioNamoro;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = agora.getHours();
+      const minutos = agora.getMinutes();
+      const segundos = agora.getSeconds();
+
+      document.getElementById('dias').textContent = dias;
+      document.getElementById('horas').textContent = horas;
+      document.getElementById('minutos').textContent = minutos;
+      document.getElementById('segundos').textContent = segundos;
+    }
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>
